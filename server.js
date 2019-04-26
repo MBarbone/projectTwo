@@ -8,7 +8,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-const viewsDirectoryPath = path.join(__dirname, './views');
+const viewsDirectoryPath = path.join(__dirname, './public/');
 
 app.use(express.static(viewsDirectoryPath));
 
