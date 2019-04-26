@@ -1,33 +1,16 @@
 const express = require('express');
-const passport = require('passport');
+const path = require('path');
 
-require('dotenv').config();
+// Trying .env file
 // var google = new Google(keys.google);
-// const keys = require('./config/keys');
-
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
-
 const app = express();
 
-passport.use(new GoogleStrategy({
-    clientID: googleAuthClientID,
-    clientSecret: keys.googleAuthClientSecret,
-    callbackURL: '/auth/google/callback'
-  }, (accessToken, refreshToken, profile, cb) => {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-  }
-  )}));
+const viewsDirectoryPath = path.join(__dirname, './views');
 
-app.get('/auth/google', passport.authenticate('google', {
-  scope: ['profile', 'email']
-}));
-
-app.get('/auth/google/callback', passport.authenticate('google'));
-
-
+app.use(express.static(viewsDirectoryPath));
 
 
 
