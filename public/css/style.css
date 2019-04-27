@@ -153,9 +153,13 @@ html {
   }
 
   /* ADMIN login specific */
-  .admin-login-left{
-    background-color: lightgrey;
-  }
+  
+  @media (min-width: 768px) {
+    .h-md-100 { height: 100vh; }
+}
+.btn-round { border-radius: 30px; }
+.left-half{ background: lightgrey; }
+
 
 
 
