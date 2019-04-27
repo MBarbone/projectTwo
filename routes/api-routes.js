@@ -20,3 +20,10 @@ const keys = require('../config/keys');
   
 //   app.get('/auth/google/callback', passport.authenticate('google'));
 // // google end
+
+module.exports = function(app) {
+
+    
+
+
+}
