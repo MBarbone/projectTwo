@@ -1,3 +1,20 @@
+/* user/admin select */
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+#login-select-mk-logo{
+  width: 500px;
+  height: auto;
+  clear:right;
+  display: block;
+  margin: 5rem auto;
+}
+
 /* USER Login Page specific */
 .user-login-body {
   background: url("../img/signinBackground.jpg") no-repeat center center fixed; 
@@ -17,7 +34,7 @@
     margin-top: 9rem;
   }
 
-  #user-login-key{
+  .login-key{
     width:4rem;
     padding-right:1rem;
     margin-bottom: .4rem;
@@ -116,7 +133,7 @@
     background-color: #ea4335;
   }
 
-  .user-forgot-password{
+  .forgot-password{
     color:rgb(26, 25, 25) !important;
     text-align: center;
     margin-bottom: .5rem;
@@ -124,7 +141,7 @@
     font-size: 80%;
     padding: rem;
   }
-  .user-forgot-password:hover{
+  .forgot-password:hover{
     text-decoration: underline !important;
     cursor: pointer;
     transition: all 0.2s;

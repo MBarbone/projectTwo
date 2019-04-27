@@ -1,0 +1,22 @@
+@media screen and (max-width: 576px) {
+    #login-select-mk-logo{
+        width: 350px;
+        margin-bottom: 4rem;
+      }
+
+    .login-select-btn{
+        margin-bottom: 1.5rem;
+    } 
+}
+
+@media screen and (max-width: 410px) {
+    #login-select-mk-logo{
+        width: 300px;
+        margin-bottom: 4rem;
+      }
+
+    .login-select-btn{
+        margin-bottom: 1rem;
+        font-size: .75rem;
+    } 
+}
