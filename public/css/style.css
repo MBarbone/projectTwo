@@ -12,7 +12,6 @@
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
-  
 
   .mx-auto{
     margin-top: 10rem;
@@ -109,6 +108,20 @@
   .btn-google {
     color: white;
     background-color: #ea4335;
+  }
+
+  .user-forgot-password{
+    color:rgb(26, 25, 25) !important;
+    text-align: center;
+    margin-bottom: .5rem;
+    letter-spacing: .1rem;
+    font-size: 80%;
+    padding: rem;
+  }
+  .user-forgot-password:hover{
+    text-decoration: underline !important;
+    cursor: pointer;
+    transition: all 0.2s;
   }
 
   /* ADMIN login specific */

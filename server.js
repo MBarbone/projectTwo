@@ -13,7 +13,10 @@ const viewsDirectoryPath = path.join(__dirname, './public/');
 app.use(express.static(viewsDirectoryPath));
 
 
+var exphbs = require("express-handlebars");
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
 app.listen(PORT, () => {
