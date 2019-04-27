@@ -21,16 +21,26 @@
     } 
 }
 
-@media screen and (max-width: 900px) {
-#admin-big-key{
-    width:350px;
+
+
+/* admin login */
+@media screen and (max-width: 1300px) {
+    #admin-big-key{
+        width:400px;
+        }
     }
-}
+    
+
+@media screen and (max-width: 900px) {
+    #admin-big-key{
+        width:325px;
+        }
+    }
 
 
 @media screen and (max-width: 767px) {
     #admin-big-key{
-        width:150px;
+        width:200px;
     }
 
     .p-5{
@@ -40,14 +50,14 @@
 
 @media screen and (max-width: 600px) {
     #admin-big-key{
-        width:100px;
+        width:150px;
     }
     .pt-5{
-        padding:0 !important;
+        padding:1rem !important;
     }
 
     .pb-5{
-        padding:0 !important;
+        padding:1rem !important;
     }
 
 }

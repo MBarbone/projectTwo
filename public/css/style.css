@@ -159,6 +159,9 @@ html {
 }
 .btn-round { border-radius: 30px; }
 .left-half{ background: lightgrey; }
+#admin-big-key{
+  width:450px;
+}
 
 
 
