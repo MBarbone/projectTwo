@@ -33,6 +33,16 @@ module.exports = (app) =>{
         res.sendfile(path.join(__dirname, ''));
     });
 
+    // building manager- manage requests
+    app.get('/admin/buildings/building-name/tenants/maintanence', (res,req) =>{
+        res.sendfile(path.join(__dirname, ''));
+    });
+
+    // building manager- manage payments
+    app.get('/admin/buildings/building-name/tenants/payments', (res,req) =>{
+        res.sendfile(path.join(__dirname, ''));
+    });
+
     // tenant home - need id?
     app.get('/user/home', (res,req) =>{
         res.sendfile(path.join(__dirname, ''));

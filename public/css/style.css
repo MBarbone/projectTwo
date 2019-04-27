@@ -3,8 +3,9 @@
 html {
   height: 100%;
 }
-body {
-  min-height: 100%;
+
+#login-select-body{
+  min-height: auto;
 }
 
 #login-select-mk-logo{
@@ -14,6 +15,10 @@ body {
   display: block;
   margin: 5rem auto;
 }
+
+/* .login-select-mk-logo-container{
+  box-shadow: 0 0.5em .5rem 0 rgba(0, 0, 0, 0.1);
+} */
 
 /* USER Login Page specific */
 .user-login-body {
@@ -150,4 +155,29 @@ body {
   /* ADMIN login specific */
   .admin-login-left{
     background-color: lightgrey;
+  }
+
+
+
+/* user template */
+.nav-link:hover{
+  text-decoration: underline;
+}
+
+#currentWeather{
+  right: 0;
+  position: absolute;
+  padding-right: 1rem;
+  color: white;
+}
+#currentWeather:hover{
+  text-decoration:none;
+}
+
+
+
+
+  /* footer */
+  footer{
+    background-color: rgb(129, 129, 172);
   }
