@@ -16,10 +16,6 @@ html {
   margin: 5rem auto;
 }
 
-/* .login-select-mk-logo-container{
-  box-shadow: 0 0.5em .5rem 0 rgba(0, 0, 0, 0.1);
-} */
-
 /* USER Login Page specific */
 .user-login-body {
   background: url("../img/signinBackground.jpg") no-repeat center center fixed; 

@@ -1,5 +1,8 @@
 const express = require('express');
-const path = require('path');
+const helmet = require('helmet');
+const exphbs = require('express-handlebars');
+const paymentsRoutes = require('./routes/payments');
+const servicesRoutes = require('./routes/services');
 
 // Trying .env file
 // var google = new Google(keys.google);
@@ -8,12 +11,13 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-const viewsDirectoryPath = path.join(__dirname, './public/');
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use('api/payments', paymentsRoutes);
+app.use('api/services', servicesRoutes);
 
-app.use(express.static(viewsDirectoryPath));
-
-
-var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
