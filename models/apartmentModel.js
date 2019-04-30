@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
 const apartmentSchema = new mongoose.Schema({
-    name: String,
     address: String,
+    unit: String,
     city: String,
     state: String,
     zip: Number,
-    leaseStart: {
-        type: Date,
-        default: Date.now(),
+    _tenant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tenant"
     }
 });
 
 
-const Apartment = mongoose.model('apartment', apartmentSchema);
+const Apartment = mongoose.model('Apartment', apartmentSchema);
 
 module.exports = Apartment;

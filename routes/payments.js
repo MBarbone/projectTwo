@@ -4,7 +4,7 @@ const Payment = require('../models/paymentModel');
 
 router.post('/', async (req,res)=>{    
     // remember to add input verification here
-    const payment = new Payment({amount: req.body.amount} );
+    const payment = new Payment({amount: req.body.amount});
 
     const data = await payment.save();
 

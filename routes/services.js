@@ -1,37 +1,38 @@
 const express = require('express');
 const router = express.Router();
+const Service = require('../models/serviceModel');
 
 router.post('/', async (req,res) =>{
-    const serviceTitle = req.body.title;
-    const serviceDescription = req.body.description;
-    const userId = req.body.userId;
-
-
-    // create/import this module "Payment" later
-
-
-
     // remember to add input verification here
+    const service = new Service({
+        requestType: req.body.requestType,
+        details: req.body.details
+    });
 
-    // save to database
-   
+    const data = await service.save();
+
+    res.send("got here");   
 })
 
 router.get('/', async (req,res) =>{
-    // SELECT * FROM SERVICES WEHRE ? = comes from models
-    // get all service history for this user
+    const data = Service.find({})
+    .then((data)=>{
+        console.log(data);
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
 
-
-    // variable service history which i will write in model
-    res.send()
+    res.send(data);
 });
 
 
 router.put('/:id', async (req,res) => {
-    const serviceId = req.params.id;
-
     // grab the id that is inserted. Error if id does not exist
     // send back full object that will be declared based on model
+    
+    const serviceId = req.params.id;
+
     res.send()
 });
 

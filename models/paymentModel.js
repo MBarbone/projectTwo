@@ -5,13 +5,14 @@ const paymentSchema = new mongoose.Schema ({
         type: Number,
         required: true
     },
-    _apartmentId: {
+    _apartment: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Apartment',
         required: true
     }
 });
 
 
-const Payment = mongoose.model('payment', paymentSchema);
+const Payment = mongoose.model('Payment', paymentSchema);
 
 module.exports = Payment;

@@ -4,7 +4,8 @@ const helmet = require('helmet');
 const exphbs = require('express-handlebars');
 const payments = require('./routes/payments');
 const db = require('./db/connection');
-// const servicesRoutes = require('./routes/services');
+const services = require('./routes/services');
+const apartment = require('./routes/apartment');
 
 // Trying .env file
 // var google = new Google(keys.google);
@@ -15,14 +16,15 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use('/api/payment', payments);
-// app.use('/api/services', servicesRoutes);
+app.use('/api/service', services);
+app.use('/api/apartment', apartment);
 
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
 app.listen(PORT, () => {

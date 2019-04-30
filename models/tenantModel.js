@@ -3,14 +3,21 @@ const mongoose = require('mongoose');
 const tenantSchema = new mongoose.Schema ({
     firstName: String,
     lastName: String,
-    email: String,
-    _apartmentId: {
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: String,
+    _apartment: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        ref: "Apartment",
+        required: true,
+        unique: true
     }
 });
 
 
-const Tenant = mongoose.model('tenant', tenantSchema);
+const Tenant = mongoose.model('Tenant', tenantSchema);
 
 module.exports = Tenant;
