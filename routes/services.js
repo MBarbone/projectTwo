@@ -1,47 +1,46 @@
-const express = require('express');
+const express = require("express");
+const Service = require("../models/serviceModel");
+const { check } = require("express-validator/check");
+
 const router = express.Router();
-const Service = require('../models/serviceModel');
 
-router.post('/', async (req,res) =>{
-    // remember to add input verification here
-    const service = new Service({
-        requestType: req.body.requestType,
-        details: req.body.details
-    });
+router.post("/", async (req, res) => {
+  // remember to add input verification here
+  const service = new Service({
+    requestType: req.body.requestType,
+    details: req.body.details
+  });
 
-    const data = await service.save();
+  const data = await service.save();
 
-    res.send("got here");   
-})
+  res.send("got here");
+});
 
-router.get('/', async (req,res) =>{
-    const data = Service.find({})
-    .then((data)=>{
-        console.log(data);
+router.get("/", async (req, res) => {
+  const data = Service.find({})
+    .then(data => {
+      console.log(data);
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch(err => {
+      console.log(err);
     });
 
-    res.send(data);
+  res.send(data);
 });
 
+router.put("/:id", async (req, res) => {
+  // grab the id that is inserted. Error if id does not exist
+  // send back full object that will be declared based on model
 
-router.put('/:id', async (req,res) => {
-    // grab the id that is inserted. Error if id does not exist
-    // send back full object that will be declared based on model
-    
-    const serviceId = req.params.id;
+  const serviceId = req.params.id;
 
-    res.send()
+  res.send();
 });
 
-router.delete('/:id', async (req,res) => {
-    
-
-     // grab the id that is inserted. Error if id does not exist
-    // send back full object that will be declared based on model
-    res.send('Service request successfully deleted.')
+router.delete("/:id", async (req, res) => {
+  // grab the id that is inserted. Error if id does not exist
+  // send back full object that will be declared based on model
+  res.send("Service request successfully deleted.");
 });
 
 module.exports = router;
