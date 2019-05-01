@@ -6,7 +6,7 @@ const Apartment = require("./apartmentModel");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: false,
     minlength: 5,
     maxlength: 50
   },
@@ -23,12 +23,14 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024
   },
-  isManager: Boolean,
+  isManager: {
+    type: Boolean,
+    default: false
+  },
   _apartment: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Apartment",
-    required: true,
-    unique: true
+    required: false
   }
 });
 
