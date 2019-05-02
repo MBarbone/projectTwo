@@ -193,6 +193,7 @@ html {
   margin-top: 25px;
   margin-right: 10px;
   margin-left: 10px;
+  background-color: white;
 }
 
 .info-divs {
@@ -202,14 +203,39 @@ html {
 
 .info-left {
   margin-left: 10px;
+  background-color: white;
 }
 
 .info-right {
   margin-right: 10px;
+  background-color: white;
 }
 
 #bulletin {
   text-decoration: underline;
+}
+
+.user-headers {
+  margin-top: 1rem;
+}
+
+.user-body {
+  background-color: rgb(235, 235, 235);
+}
+
+.fa-homePage {
+  margin-right: 0.75rem;
+}
+
+.service-request-form {
+  margin-top: 1.5rem;
+  background-color: white;
+  box-shadow: 5px 5px 35px grey;
+}
+
+.service-submit-btn {
+  background-color: rgb(140, 115, 74);
+  color: white;
 }
 
 /* footer */

@@ -5,17 +5,22 @@ const { check } = require("express-validator/check");
 
 const router = express.Router();
 
-router.post("/", [auth], async (req, res) => {
+router.post("/", async (req, res) => {
   // remember to add input verification here
-  const payment = new Payment({ amount: req.body.amount });
+  const payment = new Payment(
+    { amount: req.body.amount },
+    { _apartment: req.body._apartment }
+  );
 
   const data = await payment.save();
 
-  res.send("got here");
+  // removed [ auth ]
+
+  res.send(`Payment successfully posted.` + "\n" + `${data}`);
 });
 
 // manager payment get
-router.get("/", [auth], async (req, res) => {
+router.get("/", async (req, res) => {
   if (manager) {
     const payments = await Payment.find({});
     res.send(payments);
@@ -23,6 +28,22 @@ router.get("/", [auth], async (req, res) => {
     Payment.find({ email: req.body.email });
     res.send(payments);
   }
+});
+
+router.get("/:id", async (req, res) => {
+  let payment = await Payment.findById(req.params.id);
+  res.json(payment);
+});
+
+router.put("/:id", async (req, res) => {
+  await Apartment.findOneAndUpdate({ _id: req.params.id }, req.body);
+  let apartment = await Apartment.findById(req.params.id);
+  res.json(apartment);
+});
+
+router.delete("/:id", async (req, res) => {
+  let deletedPayment = await Payment.findOneAndDelete({ _id: req.params.id });
+  res.json(deletedPayment);
 });
 
 module.exports = router;

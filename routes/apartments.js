@@ -1,6 +1,7 @@
 const Apartment = require("../models/apartmentModel");
 const express = require("express");
 const mongoose = require("mongoose");
+const User = require("../models/userModel");
 const { check } = require("express-validator/check");
 
 const router = express.Router();
@@ -67,6 +68,14 @@ router.delete("/:id", async (req, res) => {
     _id: req.params.id
   });
   res.json(deletedApartment);
+});
+
+router.get("/:id/tenants", async (req, res) => {
+  let apartment = await Apartment.findById(req.params.id);
+  res.json(apartment);
+
+  const tenants = await Apartment.find({ _tenant: req.params._tenant });
+  res.json("sucess");
 });
 
 module.exports = router;

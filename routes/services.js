@@ -6,41 +6,42 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   // remember to add input verification here
-  const service = new Service({
-    requestType: req.body.requestType,
-    details: req.body.details
-  });
+  const service = new Service(
+    { requestType: req.body.requestType }
+    // { requestDetails: req.body.requestDetails }
+  );
 
   const data = await service.save();
 
-  res.send("got here");
+  // removed [ auth ]
+
+  res.send(`Service successfully posted.` + "\n" + `${data}`);
 });
 
 router.get("/", async (req, res) => {
-  const data = Service.find({})
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  if (manager) {
+    const services = await Service.find({});
+    res.send(services);
+  } else {
+    Service.find({ email: req.body.email });
+    res.send(services);
+  }
+});
 
-  res.send(data);
+router.get("/:id", async (req, res) => {
+  let service = await Service.findById(req.params.id);
+  res.json(service);
 });
 
 router.put("/:id", async (req, res) => {
-  // grab the id that is inserted. Error if id does not exist
-  // send back full object that will be declared based on model
-
-  const serviceId = req.params.id;
-
-  res.send();
+  await Service.findOneAndUpdate({ _id: req.params.id }, req.body);
+  let service = await Service.findById(req.params.id);
+  res.json(service);
 });
 
 router.delete("/:id", async (req, res) => {
-  // grab the id that is inserted. Error if id does not exist
-  // send back full object that will be declared based on model
-  res.send("Service request successfully deleted.");
+  let deletedService = await Service.findOneAndDelete({ _id: req.params.id });
+  res.json("Service request removed. Thank You.");
 });
 
 module.exports = router;
