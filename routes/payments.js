@@ -36,9 +36,9 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  await Apartment.findOneAndUpdate({ _id: req.params.id }, req.body);
-  let apartment = await Apartment.findById(req.params.id);
-  res.json(apartment);
+  await Payment.findOneAndUpdate({ _id: req.params.id }, req.body);
+  let payment = await Payment.findById(req.params.id);
+  res.json(payment);
 });
 
 router.delete("/:id", async (req, res) => {

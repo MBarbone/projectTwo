@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   // remember to add input verification here
-  const service = new Service(
-    { requestType: req.body.requestType }
-    // { requestDetails: req.body.requestDetails }
-  );
+  const service = new Service({
+    requestType: req.body.requestType,
+    requestDetails: req.body.requestDetails
+  });
 
   const data = await service.save();
 

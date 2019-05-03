@@ -20,7 +20,7 @@ router.post(
 
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(req.body.password, salt);
-    await User.create({ email: req.body.email, password: hashedPass });
+    await User.create(req.body);
     res.json("success");
     // const token = user.generateAuthToken();
     // res.header("x-auth-token", token).send(token);

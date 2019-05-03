@@ -27,9 +27,11 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  unit: String,
   _apartment: {
-    type: mongoose.Schema.Types.ObjectId,
     ref: "Apartment",
+    type: mongoose.Schema.Types.ObjectId,
+    db: "MasterKey",
     required: false
   }
 });

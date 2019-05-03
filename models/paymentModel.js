@@ -4,12 +4,13 @@ const paymentSchema = new mongoose.Schema({
   amount: {
     type: Number,
     required: true
+  },
+  _tenant: {
+    ref: "Apartment",
+    type: mongoose.Schema.Types.ObjectId,
+    db: "MasterKey",
+    required: true
   }
-  //   _apartment: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Apartment",
-  //     required: true
-  //   }
 });
 
 const Payment = mongoose.model("Payment", paymentSchema);

@@ -15,7 +15,6 @@ router.post("/", async (req, res) => {
 
   await Apartment.create({
     address: req.body.address,
-    // unit: String,
     city: req.body.city,
     state: req.body.state,
     zip: req.body.zip

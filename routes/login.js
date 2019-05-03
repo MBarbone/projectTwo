@@ -20,6 +20,8 @@ router.post(
     // If not valid, error
     if (!isValid) return res.status(400).send("Invalid email or password.");
     // Okay lets generate token and send.
+
+    res.send("loggedIn");
     const token = user.generateAuthToken();
     res.header("x-auth-token", token).send(token);
   }

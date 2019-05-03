@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/api/users", users);
-app.use("/api/logins", login);
+app.use("/api/login", login);
 app.use("/api/payments", payments);
 app.use("/api/services", services);
 app.use("/api/apartments", apartments);
